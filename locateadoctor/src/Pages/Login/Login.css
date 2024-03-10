@@ -1,0 +1,30 @@
+.login-details{
+    width: 40%;
+    border: 1px solid var(--green);
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    justify-content:center;
+    align-items: center;
+    padding-bottom: 25px;
+    background-color: var(--white);
+}
+.login-details > h3{
+    width: 100%;
+}
+.login-inputs{
+    width: 75%;
+}
+.login-header{
+    color: var(--white);
+    background-color: var(--green);
+}
+.LoginInput{
+    height: 40px;
+    border: 2px solid var(--primaryBg);
+    border-radius: 5px;
+}
+.LoginInput:focus{
+    outline-color: var(--green);
+}
