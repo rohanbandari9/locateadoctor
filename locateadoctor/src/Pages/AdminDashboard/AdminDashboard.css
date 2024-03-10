@@ -1,0 +1,31 @@
+/* 2D239F */
+
+.doctor-dashboard-header{
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    background-color: #2D239F;
+    display: grid;
+    grid-template-columns: 90% 10%;
+    padding: 15px;
+    text-align: center;
+    align-items: center;
+}
+.doctor-dashboard-header-menu{
+    cursor: pointer;
+    padding: 5px 10px;
+    width: 80%;
+    background-color: #DBD8FF;
+    border-radius: 30px;
+    display: grid;
+    grid-template-columns: 60% 30%;
+    align-items: center;
+}
+.admin-dashboard-content{
+    margin: 30px 100px;
+    display: grid;
+    grid-template-columns: 40% 60%;
+}
+.action-buttons{
+    display: grid;
+    row-gap: 25%;
+}
