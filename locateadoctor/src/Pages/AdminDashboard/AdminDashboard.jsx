@@ -1,7 +1,7 @@
 import React, { useState, useMemo, useEffect } from "react";
 import "./AdminDashboard.css";
 import { useNavigate } from "react-router-dom";
-// import Button from "../../components/ui/Button";
+import Button from "../../components/ui/Button";
 
 export default function AdminDashboard() {
     const [arrowRotated, setArrowRotated] = useState(false);
@@ -31,10 +31,10 @@ export default function AdminDashboard() {
             </div>
             <div className="admin-dashboard-content">
                 <div className="action-buttons">
-                {/* <Button label="Manage Doctors" buttonType="Admin-dashboard" handleFunction={handleCancelUpdate} />
+                <Button label="Manage Doctors" buttonType="Admin-dashboard" handleFunction={handleCancelUpdate} />
                 <Button label="Manage Admin" buttonType="Admin-dashboard" handleFunction={handleCancelUpdate} />
                 <Button label="Reports" buttonType="Admin-dashboard" handleFunction={handleCancelUpdate} />
-                <Button label="Trends" buttonType="Admin-dashboard" handleFunction={handleCancelUpdate} /> */}
+                <Button label="Trends" buttonType="Admin-dashboard" handleFunction={handleCancelUpdate} />
 
                 </div>
                 <div className="admin-profile-details">

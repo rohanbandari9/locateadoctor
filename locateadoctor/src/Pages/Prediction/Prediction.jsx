@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./Prediction.css";
-// import Button from "../../components/ui/Button";
+import Button from "../../components/ui/Button";
 import OpenAI from 'openai';
 import { useNavigate } from "react-router-dom";
 
@@ -65,11 +65,11 @@ function Prediction() {
                     </div>
                 </div>
                 <div className="button-group">
-                    {/* <Button
+                    <Button
                         label="Find Doctors"
                         buttonType="primary"
                         handleFunction={handleOnClick}
-                    /> */}
+                    />
                 </div>
             </div>
             </div>
