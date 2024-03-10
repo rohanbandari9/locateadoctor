@@ -1,0 +1,88 @@
+.doctors-list-displayer{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 10px;
+    margin: 20px;
+}
+.doctors-list-item-logo>img{
+    /* mix-blend-mode:exclusion; */
+    height: 200px;
+    width: 200px;
+    
+}
+.doctors-list-item{
+    cursor: pointer;
+    text-align: center;
+    display: grid;
+    row-gap: 20px;
+    border: 2px solid #239F6B;
+    border-radius: 20px;
+}
+.doctors-list-item-details{
+    text-align: center;
+    margin: 0 auto;
+}
+.doctor-detail-section{
+    margin : 20px;
+}
+.doctor-name-logo{
+    display: grid;
+    grid-template-columns: 15% 40%;
+    align-items: center;
+    gap: 25px;
+}
+.doctor-logo{
+    width: 120px;
+    height: 120px;
+    border: 2px solid green;
+    text-align: center ;
+    border-radius: 55%;
+}
+.doctor-logo>img{
+    width: 100px;
+    height: 100px;
+    border-radius: 30%;
+}
+.doctor-name-specialization{
+    display: grid;
+    gap: 10px;
+}
+.doctor-name{
+    font-size: large;
+    font-weight: bold;
+}
+.show-doctor-book-appointment{
+    display:grid;
+}
+.doctor-description-details{
+    margin-top: 2%;
+    display: grid;
+    gap: 20px;
+}
+.doctor-description-title{
+    font-size: medium;
+    font-weight: 600;
+}
+.doctor-description-content{
+    text-align:justify;
+}
+.book-appointment-button{
+    margin-top: 5%;
+    display: grid;
+    grid-template-columns: 30% 30%;
+    column-gap: 10rem;
+}
+.appointment-time-selector{
+    display: grid;
+    grid-template-columns: 60% 40%;
+}
+.appointment-time-selector-text{
+    font-size: large;
+    font-weight: 600;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+}
+.appointment-time-selector-input{
+    border: 1px solid gray;
+    border-radius: 5px;
+}
