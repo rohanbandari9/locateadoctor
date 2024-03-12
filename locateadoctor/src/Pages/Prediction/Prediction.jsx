@@ -5,6 +5,7 @@ import OpenAI from 'openai';
 import { useNavigate } from "react-router-dom";
 
 function Prediction() {
+    let symptoms = [];
     const navigate = useNavigate();
     const openAi = new OpenAI({
         apiKey: "",
@@ -15,7 +16,11 @@ function Prediction() {
     
     const loadPredictor = async () => {
 
-        let symptoms = values.split(',');
+        if (values) {
+            symptoms = values.split(',');
+        } else {
+            console.error('Symptoms data not found in localStorage.');
+        }
         const messageContent = `I am suffering with ${symptoms.join(',')}
                                 now suggest me the precautions, the doctor specialization to consult  and the name of the disease
                                 give the answer in JSON format`;
@@ -39,7 +44,7 @@ function Prediction() {
 
     useEffect(() => {
         loadPredictor();
-    }, [setResponse]);
+    }, []);
 
     const handleOnClick = () => { navigate('/FindDoctor')};
 
