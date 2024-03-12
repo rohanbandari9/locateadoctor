@@ -29,8 +29,6 @@ function FindDoctor() {
         AppointmentTime: '',
         Doctor: '',
         Patient: doc(db, 'Users', localStorage.getItem("LogInUserId"))
-        // doc('Users/' + localStorage.getItem("LogInUserId"))
-        // db.doc('users/' + localStorage.getItem("LogInUserId"))
     })
     const navigate = useNavigate();
 
@@ -88,7 +86,7 @@ function FindDoctor() {
     }
 
     const handleDateChange = (date) => {
-        if (!moment.isMoment(date)) {
+        if (!date || !moment.isMoment(date)) {
             console.error("Invalid date object provided.");
             return;
         }
@@ -100,18 +98,25 @@ function FindDoctor() {
         const selectedDate = date.format("MM-DD-YYYY");
         setAppointmentDetails(prevState => ({ ...prevState, selectedDate, allowBooking: false }));
     };
+    
 
     const handleBooking = async () => {
+        if (!appointmentDetails.selectedDate) {
+            console.error('Please select a date before booking.');
+            return;
+        }
+    
         try {
             const bookingresult = await addDoc(collection(db, 'Appointments'), values);
             setAppointmentDetails(prevState => ({ ...prevState, showAppointmentBookingModal: false }));
             const message = 'Your appointment is confirmed on ' + appointmentDetails.selectedDate;
             setAppointmentDetails(prevState => ({ ...prevState, bookingMessage: message, showConfirmation: true }));
-
+    
         } catch (error) {
-            console.error('error in booking', error);
+            console.error('Error in booking', error);
         }
     }
+    
 
     const handleModalClose = () => {
         setAppointmentDetails(prevState => ({ ...prevState, showConfirmation: false }));
@@ -168,11 +173,14 @@ function FindDoctor() {
                 <Modal>
                     <Checkmark size='60px' color='green' />
                     <div className="modal-message">{typeof appointmentDetails.bookingMessage === 'string' ? appointmentDetails.bookingMessage : ''}</div>
-                    <Button
+                    <div style={{margin:'auto'}}>
+
+                    <Button style={{margin:'auto'}}
                         label="Continue to Dashboard"
                         buttonType="primary"
                         handleFunction={handleModalClose}
                     />
+                    </div>
                 </Modal>
             }
         </div>

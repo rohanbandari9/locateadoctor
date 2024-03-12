@@ -20,6 +20,7 @@
   .modal-content{
     border-radius: 20px !important;
     padding: 50px;
+    text-align: center;
     background-color: #6ac095 !important;
     overflow-y:auto;
   }

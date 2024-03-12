@@ -119,15 +119,17 @@ export default function Dashboard() {
     };
 
     const handleBooking = async () => {
-        const docRef = doc(db,'Appointments', selectedAppointment.appointment.id);
+        const appointmentDocRef = doc(db, 'Appointments', selectedAppointment.appointment.id);
         try {
-            await updateDoc(docRef, selectedDate);
-            setShowModal({ status: 'Success', message: 'Appointment Rescheduled' });
+            await updateDoc(appointmentDocRef, selectedDate);
+            const successMessage = { status: 'Success', message: 'Appointment Rescheduled' };
+            setShowModal(successMessage);
             setShowAppointmentRescheduling(false);
             fetchAppointments(); // Update appointments after rescheduling
         } catch (error) {
             console.error('Error updating document: ', error);
-            setShowModal({ status: 'Failed', message: 'Failed to Reschedule Appointment' });
+            const failureMessage = { status: 'Failed', message: 'Failed to Reschedule Appointment' };
+            setShowModal(failureMessage);
         }
     }
 
@@ -191,7 +193,7 @@ export default function Dashboard() {
         navigate('/FindDoctor');
     }
 
-    const menuitems = [
+    const menuItems  = [
         { title: 'Past Appointments', content: pastAppointments() || 'No Scheduled Appointments Found', click: pastAppointments },
         { title: 'Upcoming Appointments', content: upcomingAppointments() || 'No Scheduled Appointments Found', click: upcomingAppointments },
         { title: 'Symptoms Input', content: 'Click here to enter symptoms', click: symptomsInput },
@@ -210,7 +212,7 @@ export default function Dashboard() {
                 </div>
             </div>
             <div className="dashboard-menu-list">
-                {menuitems.map((item, index) => (
+                {menuItems.map((item, index) => (
                     <div key={index} className="dashboard-menu-list-item">
                         <div className="dashboard-menu-list-item-text">{item.title}</div>
                         <div className="dashboard-menu-list-item-icon" onClick={() => toggleMenu(index)}>
