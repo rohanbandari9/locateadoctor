@@ -3,24 +3,29 @@ import "./SymptomsInput.css";
 import Select from 'react-select';
 import Button from "../../components/ui/Button";
 import { useNavigate } from "react-router-dom";
+const closeIcon = () => {
+    return (
+        <span className="material-symbols-outlined">
+            close
+        </span>
+    );
+}
 function SymptomsInput() {
     const navigate = useNavigate();
-    const closeIcon = () => {
-        return (
-            <span className="material-symbols-outlined">
-                close
-            </span>
-        );
-    }
 
     const [selectedSymptoms, setSelectedSymptoms] = useState([]);
     const [isSymptomsSelected, setIsSymptomsSelected] = useState(false);
 
     const handleSymptomChange = (selectedOption) => {
-        const newSymptoms = selectedOption.map(option => option.value);
-        setSelectedSymptoms(newSymptoms);
-        setIsSymptomsSelected(newSymptoms.length > 0);
+        if (selectedOption) {
+            const newSymptoms = selectedOption.map(option => option.value);
+            setSelectedSymptoms(newSymptoms);
+            setIsSymptomsSelected(newSymptoms.length > 0);
+        } else {
+            console.error('Selected option is null or undefined.');
+        }
     }
+    
 
     const ShowSelectedSymptoms = () => {
         return (

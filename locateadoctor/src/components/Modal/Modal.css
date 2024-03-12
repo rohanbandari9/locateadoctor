@@ -21,7 +21,6 @@
     border-radius: 20px !important;
     padding: 50px;
     background-color: #6ac095 !important;
-    align-items: center;
     overflow-y:auto;
   }
   .appointment-modal-content{
