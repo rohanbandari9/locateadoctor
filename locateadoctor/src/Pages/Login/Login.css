@@ -25,6 +25,8 @@
     border: 2px solid var(--primaryBg);
     border-radius: 5px;
 }
+
 .LoginInput:focus{
     outline-color: var(--green);
+    border-color: var(--green);
 }
